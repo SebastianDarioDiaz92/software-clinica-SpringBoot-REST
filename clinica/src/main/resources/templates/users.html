@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Registro y Login</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+
+
+<script src="https://kit.fontawesome.com/4b901b909a.js"
+	crossorigin="anonymous"></script>
+
+</head>
+<body >
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand" th:href="@{/index}">Registro y Login</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" th:href="@{/logout}">Logout</a></li>
+					<!-- <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Disabled</a>
+        </li> -->
+				</ul>
+				<form class="d-flex" role="search">
+					<input class="form-control me-2" type="search" placeholder="Search"
+						aria-label="Search">
+					<button class="btn btn-outline-success" type="submit">Search</button>
+				</form>
+			</div>
+		</div>
+	</nav>
+	<div class="container-lg" >
+		<div class="row col-md-10">
+			<h2>Listado de Usuarios registrados</h2>
+		</div>
+		<table class="table table-bordered table-hover">
+			<thead class="table-dark">
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>NickName</th>
+					<th>Email</th>
+					<th style="text-align: center">UPDATE</th>
+					<th style="text-align: center">DELETE</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="user : ${users}">
+					<td th:text="${user.firstName}"></td>
+					<td th:text="${user.lastName}"></td>
+					<td th:text="${user.nameUser}"></td>
+					<td th:text="${user.email}"></td>
+
+					<td style="text-align: center"><a
+						th:href="@{/users/update/} + ${user.idPerson}" title="Edit"> <i
+							class="fa-solid fa-pen-to-square"></i>
+					</a>
+					<td style="text-align: center"><a
+						th:href="@{/users/delete/} + ${user.idPerson}" title="Delete"><i
+							class="fa-solid fa-trash"></i></a></td>
+				</tr>
+			</tbody>
+		</table>
+		<a class="navbar-link float-left" th:href="@{/users/export/pdf}" title="Exportar a PDF"><i class="fa-solid fa-file-pdf"></i>Exportar PDF</a>
+	</div>
+
+<footer class="page-footer font-small teal pt-4">
+		<div class="footer"
+			style="position: fixed; left: 0; bottom: 0; width: 100%; background-color: black; color: white; text-align: center; height: 6em;">
+
+			<div class="text-center p-3"
+				style="background-color: rgba(0, 0, 0, 0.2)">
+				© 2022 Copyright | <a class="text-white" href="#">Clínica</a>
+				<section class="mb-4 text-center">
+
+					<a class="btn btn-outline-light btn-floating m-1" href="#!"
+						role="button"><i class="fab fa-facebook-f"></i></a> <a
+						class="btn btn-outline-light btn-floating m-1" href="#!"
+						role="button"><i class="fab fa-twitter"></i></a> <a
+						class="btn btn-outline-light btn-floating m-1" href="#!"
+						role="button"><i class="fab fa-google"></i></a> <a
+						class="btn btn-outline-light btn-floating m-1" href="#!"
+						role="button"><i class="fab fa-instagram"></i></a> <a
+						class="btn btn-outline-light btn-floating m-1" href="#!"
+						role="button"><i class="fab fa-linkedin-in"></i></a> <a
+						class="btn btn-outline-light btn-floating m-1" href="#!"
+						role="button"><i class="fab fa-github"></i></a>
+				</section>
+			</div>
+		</div>
+		
+	</footer>
+</body>
+
+</html>

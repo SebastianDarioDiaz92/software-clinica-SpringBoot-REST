@@ -1,0 +1,12 @@
+ar.edu.unju.fi.clinica
+ar.edu.unju.fi.clinica.Config
+ar.edu.unju.fi.clinica.Controller
+ar.edu.unju.fi.clinica.DTO
+ar.edu.unju.fi.clinica.Entity
+ar.edu.unju.fi.clinica.Mapper
+ar.edu.unju.fi.clinica.Repository
+ar.edu.unju.fi.clinica.Service
+ar.edu.unju.fi.clinica.Service.Imp
+ar.edu.unju.fi.clinica.TestDTO
+ar.edu.unju.fi.clinica.Util
+ar.edu.unju.fi.clinica.View
